@@ -17,14 +17,14 @@ function getBinaryNum(numLengh) {
 }
 
 
-function convertResult(bin) {  // NOT WORKING
+function convertResult(bin) { 
     /* Convert binary number into decimal */
     let result = 0;
-    for (let i=0; i<= bin.length-1;i++) {
+    for (let i=0; i<=bin.length-1 ;i++) {
         if (bin[i] == 1) {
-            result += 2**(i+1);
+            result += 2**((bin.length-1)-i);
         }
-    }
+    } 
     return result;
 }
 
@@ -32,16 +32,26 @@ function checkResult() {
     /* Check if the user input is right */
     let userAnswer = document.getElementById("guess-field").value ;
     let actualBin = document.getElementById("display-field").value ;
-
+    
+    // If user has the right answer he wins else he fails 
     if (userAnswer == convertResult(actualBin)) {
-        console.log = "WIN";
+        document.getElementById("statu").textContent = "Congrats!";
+        setTimeout(init,1000);
+
     } else {
-        console.log = "LOSE";
+        document.getElementById("statu").textContent = "Looser!";
+        setTimeout(init,1000);
     }
 
 }
 
 
-document.getElementById("display-field").value = getBinaryNum(8);
-getBinaryNum(8);
+function init() {
+    setTimeout('',500);
+    document.getElementById("statu").textContent = "";
+    document.getElementById("display-field").value = getBinaryNum(8);
+    getBinaryNum(8);
+}
+
+init();
 
