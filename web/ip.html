@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary</title>
+</head>
+<body>
+    
+
+    <p id="display-field"></p>
+
+    <p id="statu"></p>
+    <!--
+        Value can't be calculate
+        Because of the separators displayed 
+        which are contain in the analysed value
+    -->
+
+    <input id="guess-field" type="text" pattern="{01.}*" maxlength="32" minlength="8">
+    <input type="button" value="Submit" onclick="checkResult()">
+
+    <a href="index.html">Back</a>
+
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        init(32);
+    };
+    
+</script>
+</html>
